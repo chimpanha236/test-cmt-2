@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>កន្លែងសរសេរសារជូនពរ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="comment-section">
+        <h2>🎊 សារជូនពរ 🎊</h2>
+
+        <!-- សារជោគជ័យ -->
+        <div class="success-message" id="successMessage">
+            ✅ សារបានបញ្ជូនដោយជោគជ័យ!
+        </div>
+
+        <!-- សារបរាជ័យ -->
+        <div class="error-message" id="errorMessage">
+            ❌ មានបញ្ហាក្នុងការផ្ញើសារ!
+        </div>
+
+        <!-- ទម្រង់សរសេរសារ -->
+        <form class="comment-form" id="commentForm">
+            <div class="form-group">
+                <label for="name">ឈ្មោះ *​</label>
+                <input type="text" id="name" name="name" required placeholder="បញ្ចូលឈ្មោះរបស់អ្នក...">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">អ៊ីមែល</label>
+                <input type="email" id="email" name="email" placeholder="បញ្ចូលអ៊ីមែលរបស់អ្នក...">
+            </div>
+            
+            <div class="form-group">
+                <label for="comment">សារជូនពរ *</label>
+                
+                <!-- រូបតំណាងអារម្មណ៍ -->
+                <div class="emoji-picker">
+                    <span onclick="addEmoji('😊')">😊</span>
+                    <span onclick="addEmoji('❤️')">❤️</span>
+                    <span onclick="addEmoji('🎉')">🎉</span>
+                    <span onclick="addEmoji('🥳')">🥳</span>
+                    <span onclick="addEmoji('🙏')">🙏</span>
+                </div>
+                
+                <textarea id="comment" name="comment" rows="5" required placeholder="សូមសរសេរសារជូនពររបស់អ្នកនៅទីនេះ..."></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">📨 ផ្ញើសារជូនពរ</button>
+        </form>
+        
+        <!-- តារាងសារជូនពរ -->
+        <div class="comments-list" id="commentsList">
+            <h3>💌 សារជូនពរដែលបានផ្ញើរួច</h3>
+            
+            <!-- ការផ្ទុក -->
+            <div class="loading" id="loadingMessage">
+                🔄 កំពុងផ្ទុកសារជូនពរ...
+            </div>
+            
+            <!-- គ្មានសារ -->
+            <div class="no-comments" id="noComments" style="display: none;">
+                មិនទាន់មានសារជូនពរនៅឡើយទេ។ សូមផ្ញើសារជូនពររបស់អ្នកមកជាមុនសិន!
+            </div>
+            
+            <!-- សារនឹងបង្ហាញនៅទីនេះ -->
+        </div>
+
+        <!-- ព័ត៌មាន Debug -->
+        <div class="debug-info" id="debugInfo" style="display: none;">
+            <strong>Debug Information:</strong>
+            <div id="debugContent"></div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK Version 8 (compat) - ងាយស្រួលប្រើ -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    
+    <!-- JavaScript របស់យើង -->
+    <!-- ✅ កែត្រង់នេះ៖ ត្រូវប្រាកដថា script.js នៅក្នុង folder ដូចគ្នា -->
+    <script src="script.js"></script>
+</body>
+</html>

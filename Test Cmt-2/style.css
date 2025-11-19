@@ -1,0 +1,264 @@
+/* កំណត់រចនាសម្ព័ន្ធមូលដ្ឋាន */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* រាងកាយទំព័រ */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #ffe8e8, #f9f3f3);
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* ផ្នែកសំខាន់ */
+.comment-section {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(255, 107, 107, 0.1);
+    border: 2px solid #ff6b6b;
+}
+
+/* ចំណងជើង */
+h2, h3 {
+    color: #d32f2f;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Khmer OS', 'Arial', sans-serif;
+}
+
+/* ទម្រង់សរសេរសារ */
+.comment-form {
+    margin-bottom: 40px;
+    padding: 25px;
+    background: #fff5f5;
+    border-radius: 12px;
+    border: 1px solid #ffcdd2;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #c62828;
+}
+
+/* ប្រអប់បញ្ចូល */
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ffcdd2;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s;
+    background: white;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #ff6b6b;
+    box-shadow: 0 0 10px rgba(255, 107, 107, 0.2);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* រូបតំណាងអារម្មណ៍ */
+.emoji-picker {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.emoji-picker span {
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.2s;
+}
+
+.emoji-picker span:hover {
+    transform: scale(1.2);
+}
+
+/* ប៊ូតុងផ្ញើ */
+.submit-btn {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s;
+    display: block;
+    margin: 0 auto;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+/* តារាងសារ */
+.comments-list {
+    border-top: 2px solid #ffcdd2;
+    padding-top: 25px;
+}
+
+/* ចលនាសារ */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* សារនីមួយៗ */
+.comment-item {
+    background: #fff9f9;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border-left: 5px solid #ff6b6b;
+    position: relative;
+    animation: fadeIn 0.5s ease-in;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.comment-header strong {
+    color: #d32f2f;
+    font-size: 18px;
+}
+
+.comment-date {
+    color: #ff6b6b;
+    font-size: 14px;
+}
+
+.comment-content {
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+/* ប៊ូតុងលុប */
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #da190b;
+}
+
+/* សារផ្សេងៗ */
+.success-message {
+    background: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    display: none;
+    border: 1px solid #c3e6cb;
+}
+
+.error-message {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    display: none;
+    border: 1px solid #f5c6cb;
+}
+
+.comment-email {
+    font-size: 14px;
+    color: #666;
+    margin-top: 8px;
+}
+
+.no-comments {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 20px;
+}
+
+.loading {
+    text-align: center;
+    color: #666;
+    padding: 20px;
+}
+
+.debug-info {
+    background: #e9ecef;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #666;
+}
+
+/* ទូរស័ព្ទ */
+@media (max-width: 768px) {
+    .comment-section {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    .comment-form {
+        padding: 20px;
+    }
+    
+    .comment-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}
